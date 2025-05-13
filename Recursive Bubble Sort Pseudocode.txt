@@ -1,0 +1,11 @@
+function bubbleSortRec(arr, n):
+    if n == 1:
+        return
+
+    // Perform one full pass of bubble sort
+    for i from 0 to n - 2:
+        if arr[i] > arr[i + 1]:
+            swap(arr[i], arr[i + 1])
+
+    // Recurse on the remaining array
+    bubbleSortRec(arr, n - 1)

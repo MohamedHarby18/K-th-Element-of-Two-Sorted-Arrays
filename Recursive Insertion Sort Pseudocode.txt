@@ -1,0 +1,14 @@
+function insertionSortRec(arr, n):
+    if n <= 1:
+        return
+
+    insertionSortRec(arr, n - 1)  // Sort first n-1 elements
+
+    last = arr[n - 1]  // Last element to be inserted
+    j = n - 2
+
+    while j >= 0 and arr[j] > last:
+        arr[j + 1] = arr[j]
+        j = j - 1
+
+    arr[j + 1] = last

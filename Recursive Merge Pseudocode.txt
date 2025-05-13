@@ -1,0 +1,19 @@
+function mergeRecursive(arr1, size1, arr2, size2, merged, i = 0, j = 0, k = 0):
+    if i == size1 and j == size2:  // Base case: both arrays fully processed
+        return
+
+    if i == size1:  // arr1 exhausted, take from arr2
+        merged[k] = arr2[j]
+        mergeRecursive(arr1, size1, arr2, size2, merged, i, j + 1, k + 1)
+
+    elif j == size2:  // arr2 exhausted, take from arr1
+        merged[k] = arr1[i]
+        mergeRecursive(arr1, size1, arr2, size2, merged, i + 1, j, k + 1)
+
+    elif arr1[i] < arr2[j]:  // arr1 has smaller element
+        merged[k] = arr1[i]
+        mergeRecursive(arr1, size1, arr2, size2, merged, i + 1, j, k + 1)
+
+    else:  // arr2 has smaller or equal element
+        merged[k] = arr2[j]
+        mergeRecursive(arr1, size1, arr2, size2, merged, i, j + 1, k + 1)
